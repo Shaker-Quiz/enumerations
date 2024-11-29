@@ -1,0 +1,22 @@
+{
+  "type": "module",
+
+  "name": "@shakerquiz/enumerations",
+
+  "version": "0.1.0",
+  "author": "yurkimus <yurkimus@gmail.com>",
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Shaker-Quiz/enumerations.git"
+  },
+
+  "exports": {
+    ".": null,
+    "./constants": "./source/constants.js",
+    "./minio": "./source/minio.js",
+    "./neo4j": "./source/neo4j.js",
+    "./postgres": "./source/postgres.js",
+    "./regexps": "./source/regexps.js"
+  }
+}
