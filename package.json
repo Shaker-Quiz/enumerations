@@ -2,8 +2,8 @@
   "type": "module",
 
   "name": "@shakerquiz/enumerations",
+  "version": "0.1.1",
 
-  "version": "0.1.0",
   "author": "yurkimus <yurkimus@gmail.com>",
 
   "repository": {
@@ -12,8 +12,11 @@
   },
 
   "exports": {
-    ".": null,
-    "./constants": "./source/constants.js",
+    ".": "./source/index.js",
+    "./constants": {
+      "types": "./source/constants.d.ts",
+      "import": "./source/constants.js"
+    },
     "./minio": "./source/minio.js",
     "./neo4j": "./source/neo4j.js",
     "./postgres": "./source/postgres.js",
