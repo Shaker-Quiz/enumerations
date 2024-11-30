@@ -1,6 +1,3 @@
-/**
- * @type {Constants}
- */
 export let Constants = {
   /**
    * @see https://www.rfc-editor.org/rfc/rfc9562.html#name-nil-uuid
