@@ -1,11 +1,11 @@
-export let UserRoles = /** @type {const} */ ({
+export let UserRoles = {
   Admin: 'admin',
   Manager: 'manager',
   User: 'user',
   Organizer: 'organizer',
-})
+}
 
-export let GameStatuses = /** @type {const} */ ({
+export let GameStatuses = {
   Moderation: 'MODERATION',
   Published: 'PUBLISHED',
   Rejected: 'REJECTED',
@@ -15,4 +15,4 @@ export let GameStatuses = /** @type {const} */ ({
   Invitation: 'FORINVITES',
   Reservation: 'IS_RESERVE',
   Closed: 'CLOSED',
-})
+}

@@ -1,4 +1,4 @@
-export let Labels = /** @type {const} */ ({
+export let Labels = {
   Page: {
     Landing: 'Landing',
   },
@@ -10,4 +10,4 @@ export let Labels = /** @type {const} */ ({
     GameGuide: 'GameGuide',
     ReviewAuthor: 'ReviewAuthor',
   },
-})
+}

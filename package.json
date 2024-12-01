@@ -2,7 +2,7 @@
   "type": "module",
 
   "name": "@shakerquiz/enumerations",
-  "version": "0.1.2",
+  "version": "0.1.3",
 
   "author": "yurkimus <yurkimus@gmail.com>",
 
@@ -12,14 +12,25 @@
   },
 
   "exports": {
-    ".": "./source/index.js",
     "./constants": {
       "types": "./source/constants.d.ts",
       "import": "./source/constants.js"
     },
-    "./minio": "./source/minio.js",
-    "./neo4j": "./source/neo4j.js",
-    "./postgres": "./source/postgres.js",
-    "./regexps": "./source/regexps.js"
+    "./minio": {
+      "types": "./source/minio.d.ts",
+      "import": "./source/minio.js"
+    },
+    "./neo4j": {
+      "types": "./source/neo4j.d.ts",
+      "import": "./source/neo4j.js"
+    },
+    "./postgres": {
+      "types": "./source/postgres.d.ts",
+      "import": "./source/postgres.js"
+    },
+    "./regexps": {
+      "types": "./source/regexps.d.ts",
+      "import": "./source/regexps.js"
+    }
   }
 }
