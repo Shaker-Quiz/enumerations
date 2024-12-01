@@ -1,18 +1,18 @@
 export let UserRoles = {
   Admin: 'admin',
   Manager: 'manager',
-  User: 'user',
   Organizer: 'organizer',
+  User: 'user',
 }
 
 export let GameStatuses = {
+  Approved: 'APPROVED',
+  Archive: 'ARCHIVE',
+  Closed: 'CLOSED',
+  Finished: 'FINISHED',
+  Invitation: 'FORINVITES',
   Moderation: 'MODERATION',
   Published: 'PUBLISHED',
   Rejected: 'REJECTED',
-  Approved: 'APPROVED',
-  Finished: 'FINISHED',
-  Archive: 'ARCHIVE',
-  Invitation: 'FORINVITES',
-  Reservation: 'IS_RESERVE',
-  Closed: 'CLOSED',
+  Reserved: 'IS_RESERVE',
 }
