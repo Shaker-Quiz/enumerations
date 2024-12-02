@@ -1,3 +1,3 @@
 # ShakerQuiz Enumerations
 
-Module contains the enumerations.
+Module contains enumerations.

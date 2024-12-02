@@ -2,7 +2,7 @@
   "type": "module",
 
   "name": "@shakerquiz/enumerations",
-  "version": "0.1.4",
+  "version": "0.1.5",
 
   "author": "yurkimus <yurkimus@gmail.com>",
 
@@ -31,6 +31,10 @@
     "./regexps": {
       "types": "./source/regexps.d.ts",
       "import": "./source/regexps.js"
+    },
+    "./network": {
+      "types": "./source/network.d.ts",
+      "import": "./source/network.js"
     }
   }
 }
