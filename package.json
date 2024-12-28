@@ -2,7 +2,7 @@
   "type": "module",
 
   "name": "@shakerquiz/enumerations",
-  "version": "0.1.5",
+  "version": "0.1.6",
 
   "author": "yurkimus <yurkimus@gmail.com>",
 
@@ -35,6 +35,9 @@
     "./network": {
       "types": "./source/network.d.ts",
       "import": "./source/network.js"
+    },
+    "./services": {
+      "import": "./source/services.js"
     }
   }
 }
