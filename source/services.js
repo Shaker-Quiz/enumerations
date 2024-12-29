@@ -195,6 +195,11 @@ export let Transformers = {
     min_members_count: body.event_min_members_count,
     max_members_count: body.event_max_members_count,
 
+    city: {
+      id: body.city_id,
+      alias: body.city_alias,
+    },
+
     location: {
       name: body.location_name,
       street: body.location_street,
@@ -226,6 +231,11 @@ export let Transformers = {
         min_members_count: item.event_min_members_count,
         max_members_count: item.event_max_members_count,
 
+        city: {
+          id: body.city_id,
+          alias: body.city_alias,
+        },
+
         location: {
           name: item.location_name,
           street: item.location_street,
@@ -248,15 +258,29 @@ export let Transformers = {
 
 export let Requests = new Map()
 
+let onrejected = reason => {
+  switch (type(reason)) {
+    case 'AbortError':
+      throw AbortError(reason.message)
+
+    case 'AuthorizationError':
+      throw AuthorizationError(reason.message)
+
+    case 'RequestError':
+      throw RequestError(reason.message)
+
+    default:
+      throw reason
+  }
+}
+
 Requests
   .set(
     Features.City,
     {
       fallback: () => null,
       onfulfilled: Transformers[Features.City],
-      onrejected: reason => {
-        throw reason
-      },
+      onrejected,
     },
   )
   .set(
@@ -264,9 +288,7 @@ Requests
     {
       fallback: () => [],
       onfulfilled: Transformers[Features.Cities],
-      onrejected: reason => {
-        throw reason
-      },
+      onrejected,
     },
   )
   .set(
@@ -274,9 +296,7 @@ Requests
     {
       fallback: () => null,
       onfulfilled: Transformers[Features.CityPublic],
-      onrejected: reason => {
-        throw reason
-      },
+      onrejected,
     },
   )
   .set(
@@ -284,9 +304,7 @@ Requests
     {
       fallback: () => [],
       onfulfilled: Transformers[Features.CitiesPublic],
-      onrejected: reason => {
-        throw reason
-      },
+      onrejected,
     },
   )
   .set(
@@ -294,9 +312,7 @@ Requests
     {
       fallback: () => null,
       onfulfilled: Transformers[Features.GamePublic],
-      onrejected: reason => {
-        throw reason
-      },
+      onrejected,
     },
   )
   .set(
@@ -304,8 +320,6 @@ Requests
     {
       fallback: () => [],
       onfulfilled: Transformers[Features.GamesPublic],
-      onrejected: reason => {
-        throw reason
-      },
+      onrejected,
     },
   )
