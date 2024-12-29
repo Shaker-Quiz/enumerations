@@ -184,7 +184,7 @@ export let Transformers = {
       }))
       .sort((a, b) => a.name.localeCompare(b.name)),
 
-  [Features.GamePublic]: body => ({
+  [Features.GamePublic]: game => ({
     id: game.event_id,
     alias: game.event_alias,
     number: game.event_number,
