@@ -65,7 +65,7 @@ export let Transformers = {
     },
   }),
 
-  [Features.CitiesPublic]: body =>
+  [Features.Cities]: body =>
     body
       .map(body => ({
         name: body.name,
