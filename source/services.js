@@ -258,29 +258,12 @@ export let Transformers = {
 
 export let Requests = new Map()
 
-let onrejected = reason => {
-  switch (type(reason)) {
-    case 'AbortError':
-      throw AbortError(reason.message)
-
-    case 'AuthorizationError':
-      throw AuthorizationError(reason.message)
-
-    case 'RequestError':
-      throw RequestError(reason.message)
-
-    default:
-      throw reason
-  }
-}
-
 Requests
   .set(
     Features.City,
     {
       fallback: () => null,
       onfulfilled: Transformers[Features.City],
-      onrejected,
     },
   )
   .set(
@@ -288,7 +271,6 @@ Requests
     {
       fallback: () => [],
       onfulfilled: Transformers[Features.Cities],
-      onrejected,
     },
   )
   .set(
@@ -296,7 +278,6 @@ Requests
     {
       fallback: () => null,
       onfulfilled: Transformers[Features.CityPublic],
-      onrejected,
     },
   )
   .set(
@@ -304,7 +285,6 @@ Requests
     {
       fallback: () => [],
       onfulfilled: Transformers[Features.CitiesPublic],
-      onrejected,
     },
   )
   .set(
@@ -312,7 +292,6 @@ Requests
     {
       fallback: () => null,
       onfulfilled: Transformers[Features.GamePublic],
-      onrejected,
     },
   )
   .set(
@@ -320,6 +299,5 @@ Requests
     {
       fallback: () => [],
       onfulfilled: Transformers[Features.GamesPublic],
-      onrejected,
     },
   )
