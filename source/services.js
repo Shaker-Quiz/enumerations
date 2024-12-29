@@ -124,62 +124,62 @@ export let Transformers = {
       .sort((a, b) => a.name.localeCompare(b.name)),
 
   [Features.CityPublic]: body => ({
-    alias: body.city_alias,
-    id: body.city_id,
-    name: body.city_name,
-    vk_group_id: body.city_vk_group_id,
-    vk_link: body.city_vk_link,
-    tg_link: body.city_tg_link,
-    inst_link: body.city_inst_link,
-    phone: body.city_phone,
-    email: body.city_email,
-    address: body.city_address,
+    alias: body.alias,
+    id: body.id,
+    name: body.name,
+    vk_group_id: body.vk_group_id,
+    vk_link: body.vk_link,
+    tg_link: body.tg_link,
+    inst_link: body.inst_link,
+    phone: body.phone,
+    email: body.email,
+    address: body.address,
 
     analitycs: {
-      custom_html: body.city_custom_html,
-      custom_script: body.city_custom_script,
-      yandex_metrica: body.city_yandex_metrica,
+      custom_html: body.custom_html,
+      custom_script: body.custom_script,
+      yandex_metrica: body.yandex_metrica,
     },
 
     meta: {
-      title: body.city_meta_title,
-      description: body.city_meta_description,
+      title: body.meta_title,
+      description: body.meta_description,
     },
 
     participants: {
-      maximum: body.city_max_members_count,
-      minimum: body.city_min_members_count,
+      maximum: body.max_members_count,
+      minimum: body.min_members_count,
     },
   }),
 
   [Features.CitiesPublic]: body =>
     body
       .map(body => ({
-        alias: body.city_alias,
-        id: body.city_id,
-        name: body.city_name,
-        vk_group_id: body.city_vk_group_id,
-        vk_link: body.city_vk_link,
-        tg_link: body.city_tg_link,
-        inst_link: body.city_inst_link,
-        phone: body.city_phone,
-        email: body.city_email,
-        address: body.city_address,
+        alias: body.alias,
+        id: body.id,
+        name: body.name,
+        vk_group_id: body.vk_group_id,
+        vk_link: body.vk_link,
+        tg_link: body.tg_link,
+        inst_link: body.inst_link,
+        phone: body.phone,
+        email: body.email,
+        address: body.address,
 
         analitycs: {
-          custom_html: body.city_custom_html,
-          custom_script: body.city_custom_script,
-          yandex_metrica: body.city_yandex_metrica,
+          custom_html: body.custom_html,
+          custom_script: body.custom_script,
+          yandex_metrica: body.yandex_metrica,
         },
 
         meta: {
-          title: body.city_meta_title,
-          description: body.city_meta_description,
+          title: body.meta_title,
+          description: body.meta_description,
         },
 
         participants: {
-          maximum: body.city_max_members_count,
-          minimum: body.city_min_members_count,
+          maximum: body.max_members_count,
+          minimum: body.min_members_count,
         },
       }))
       .sort((a, b) => a.name.localeCompare(b.name)),
