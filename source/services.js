@@ -184,32 +184,32 @@ export let Transformers = {
       }))
       .sort((a, b) => a.name.localeCompare(b.name)),
 
-  [Features.GamePublic]: game => ({
-    id: game.event_id,
-    alias: game.event_alias,
-    number: game.event_number,
-    time: game.event_time,
-    status: game.event_status,
-    price: game.event_price,
-    currency: game.event_currency,
-    min_members_count: game.event_min_members_count,
-    max_members_count: game.event_max_members_count,
+  [Features.GamePublic]: body => ({
+    id: body.event_id,
+    alias: body.event_alias,
+    number: body.event_number,
+    time: body.event_time,
+    status: body.event_status,
+    price: body.event_price,
+    currency: body.event_currency,
+    min_members_count: body.event_min_members_count,
+    max_members_count: body.event_max_members_count,
 
     location: {
-      name: game.location_name,
-      street: game.location_street,
-      info: game.location_info,
-      house_number: game.location_house_number,
+      name: body.location_name,
+      street: body.location_street,
+      info: body.location_info,
+      house_number: body.location_house_number,
     },
 
     theme: {
-      name: game.theme_name,
-      description: game.theme_description,
-      short_description: game.theme_short_description,
+      name: body.theme_name,
+      description: body.theme_description,
+      short_description: body.theme_short_description,
     },
 
     media: {
-      path: game.media_path,
+      path: body.media_path,
     },
   }),
 
@@ -262,7 +262,7 @@ Requests
   .set(
     Features.Cities,
     {
-      fallback: () => null,
+      fallback: () => [],
       onfulfilled: Transformers[Features.Cities],
       onrejected: reason => {
         throw reason
