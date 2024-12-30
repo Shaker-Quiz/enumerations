@@ -124,16 +124,17 @@ export let Transformers = {
       .sort((a, b) => a.name.localeCompare(b.name)),
 
   [Features.CityPublic]: body => ({
+    address: body.address,
     alias: body.alias,
+    country: body.country,
+    email: body.email,
     id: body.id,
+    inst_link: body.inst_link,
     name: body.name,
+    phone: body.phone,
+    tg_link: body.tg_link,
     vk_group_id: body.vk_group_id,
     vk_link: body.vk_link,
-    tg_link: body.tg_link,
-    inst_link: body.inst_link,
-    phone: body.phone,
-    email: body.email,
-    address: body.address,
 
     analitycs: {
       custom_html: body.custom_html,
@@ -155,16 +156,17 @@ export let Transformers = {
   [Features.CitiesPublic]: body =>
     body
       .map(body => ({
+        address: body.address,
         alias: body.alias,
+        country: body.country,
+        email: body.email,
         id: body.id,
+        inst_link: body.inst_link,
         name: body.name,
+        phone: body.phone,
+        tg_link: body.tg_link,
         vk_group_id: body.vk_group_id,
         vk_link: body.vk_link,
-        tg_link: body.tg_link,
-        inst_link: body.inst_link,
-        phone: body.phone,
-        email: body.email,
-        address: body.address,
 
         analitycs: {
           custom_html: body.custom_html,
