@@ -7,6 +7,8 @@ export let Features = {
 
   GamePublic: 'GamePublic',
   GamesPublic: 'GamesPublic',
+
+  GamesTable: 'GamesTable',
 }
 
 export let Transformers = {
@@ -256,6 +258,43 @@ export let Transformers = {
         },
       }))
       .sort((a, b) => new Date(a.time) - new Date(b.time)),
+
+  [Features.GamesTable]: body =>
+    body
+      .map(item => ({
+        id: item.event_id,
+        alias: item.event_alias,
+        number: item.event_number,
+        time: item.event_time,
+        status: item.event_status,
+
+        location: {
+          name: item.location_name,
+        },
+
+        city: {
+          id: item.city_id,
+          alias: item.city_alias,
+          name: item.city_name,
+          franchise: item.city_franchise,
+          timezone: item.city_timezone,
+        },
+
+        theme: {
+          id: item.theme_id,
+          name: item.theme_name,
+        },
+
+        people: {
+          amount: item.people_amount,
+          reservation: item.people_reserve_amount,
+        },
+
+        teams: {
+          amount: item.teams_amount,
+          reservation: item.teams_reserve_amount,
+        },
+      })),
 }
 
 export let Requests = new Map()
@@ -301,5 +340,12 @@ Requests
     {
       fallback: () => [],
       onfulfilled: Transformers[Features.GamesPublic],
+    },
+  )
+  .set(
+    Features.GamesTable,
+    {
+      fallback: () => [],
+      onfulfilled: Transformers[Features.GamesTable],
     },
   )
