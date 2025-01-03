@@ -1,3 +1,6 @@
+/**
+ * @type {import('./services.d.ts').Features}
+ */
 export let Features = {
   City: 'City',
   Cities: 'Cities',
@@ -8,291 +11,326 @@ export let Features = {
   GamePublic: 'GamePublic',
   GamesPublic: 'GamesPublic',
 
-  GamesTable: 'GamesTable',
+  Games: 'GamesTable',
 }
 
+/**
+ * @type {import('./services.d.ts').Transformers}
+ */
 export let Transformers = {
-  [Features.City]: body => ({
-    name: body.name,
-    id: body.id,
-    time_created: body.time_created,
-    time_updated: body.time_updated,
-    price: body.price,
-    currency: body.currency,
-    game_time: body.game_time,
-    timezone: body.timezone,
-    vk_link: body.vk_link,
-    vk_comment: body.vk_comment,
-    tg_link: body.tg_link,
-    tg_login: body.tg_login,
-    tg_password: body.tg_password,
-    tg_comment: body.tg_comment,
-    inst_link: body.inst_link,
-    inst_login: body.inst_login,
-    inst_password: body.inst_password,
-    inst_comment: body.inst_comment,
-    is_franchise: body.is_franchise,
-    alias: body.alias,
-    vk_group_id: body.vk_group_id,
-    chatapp_line: body.chatapp_line,
-    chatapp_user: body.chatapp_user,
-    chatapp_tag: body.chatapp_tag,
-    chatapp_category: body.chatapp_category,
-    telegram_chat_id: body.telegram_chat_id,
-    title: body.title,
-    description: body.description,
-    region: body.region,
-    country: body.country,
-    is_default: body.is_default,
-    yandex_metrica: body.yandex_metrica,
-    chatapp_legacy: body.chatapp_legacy,
-    phone: body.phone,
-    email: body.email,
-    address: body.address,
+  [Features.City]: row => ({
+    name: row.name,
+    id: row.id,
+    time_created: row.time_created,
+    time_updated: row.time_updated,
+    price: row.price,
+    currency: row.currency,
+    game_time: row.game_time,
+    timezone: row.timezone,
+    vk_link: row.vk_link,
+    vk_comment: row.vk_comment,
+    tg_link: row.tg_link,
+    tg_login: row.tg_login,
+    tg_password: row.tg_password,
+    tg_comment: row.tg_comment,
+    inst_link: row.inst_link,
+    inst_login: row.inst_login,
+    inst_password: row.inst_password,
+    inst_comment: row.inst_comment,
+    is_franchise: row.is_franchise,
+    alias: row.alias,
+    vk_group_id: row.vk_group_id,
+    chatapp_line: row.chatapp_line,
+    chatapp_user: row.chatapp_user,
+    chatapp_tag: row.chatapp_tag,
+    chatapp_category: row.chatapp_category,
+    telegram_chat_id: row.telegram_chat_id,
+    title: row.title,
+    description: row.description,
+    region: row.region,
+    country: row.country,
+    is_default: row.is_default,
+    yandex_metrica: row.yandex_metrica,
+    chatapp_legacy: row.chatapp_legacy,
+    phone: row.phone,
+    email: row.email,
+    address: row.address,
 
     analitycs: {
-      custom_html: body.custom_html,
-      custom_script: body.custom_script,
-      yandex_metrica: body.yandex_metrica,
+      custom_html: row.custom_html,
+      custom_script: row.custom_script,
+      yandex_metrica: row.yandex_metrica,
     },
 
     meta: {
-      title: body.meta_title,
-      description: body.meta_description,
+      title: row.meta_title,
+      description: row.meta_description,
     },
 
     participants: {
-      maximum: body.max_members_count,
-      minimum: body.min_members_count,
+      maximum: row.max_members_count,
+      minimum: row.min_members_count,
     },
   }),
 
-  [Features.Cities]: body =>
-    body
-      .map(body => ({
-        name: body.name,
-        id: body.id,
-        time_created: body.time_created,
-        time_updated: body.time_updated,
-        price: body.price,
-        currency: body.currency,
-        game_time: body.game_time,
-        timezone: body.timezone,
-        vk_link: body.vk_link,
-        vk_comment: body.vk_comment,
-        tg_link: body.tg_link,
-        tg_login: body.tg_login,
-        tg_password: body.tg_password,
-        tg_comment: body.tg_comment,
-        inst_link: body.inst_link,
-        inst_login: body.inst_login,
-        inst_password: body.inst_password,
-        inst_comment: body.inst_comment,
-        is_franchise: body.is_franchise,
-        alias: body.alias,
-        vk_group_id: body.vk_group_id,
-        chatapp_line: body.chatapp_line,
-        chatapp_user: body.chatapp_user,
-        chatapp_tag: body.chatapp_tag,
-        chatapp_category: body.chatapp_category,
-        telegram_chat_id: body.telegram_chat_id,
-        title: body.title,
-        description: body.description,
-        region: body.region,
-        country: body.country,
-        is_default: body.is_default,
-        yandex_metrica: body.yandex_metrica,
-        chatapp_legacy: body.chatapp_legacy,
-        phone: body.phone,
-        email: body.email,
-        address: body.address,
+  [Features.Cities]: rows =>
+    rows
+      .map(row => ({
+        name: row.name,
+        id: row.id,
+        time_created: row.time_created,
+        time_updated: row.time_updated,
+        price: row.price,
+        currency: row.currency,
+        game_time: row.game_time,
+        timezone: row.timezone,
+        vk_link: row.vk_link,
+        vk_comment: row.vk_comment,
+        tg_link: row.tg_link,
+        tg_login: row.tg_login,
+        tg_password: row.tg_password,
+        tg_comment: row.tg_comment,
+        inst_link: row.inst_link,
+        inst_login: row.inst_login,
+        inst_password: row.inst_password,
+        inst_comment: row.inst_comment,
+        is_franchise: row.is_franchise,
+        alias: row.alias,
+        vk_group_id: row.vk_group_id,
+        chatapp_line: row.chatapp_line,
+        chatapp_user: row.chatapp_user,
+        chatapp_tag: row.chatapp_tag,
+        chatapp_category: row.chatapp_category,
+        telegram_chat_id: row.telegram_chat_id,
+        title: row.title,
+        description: row.description,
+        region: row.region,
+        country: row.country,
+        is_default: row.is_default,
+        yandex_metrica: row.yandex_metrica,
+        chatapp_legacy: row.chatapp_legacy,
+        phone: row.phone,
+        email: row.email,
+        address: row.address,
 
         analitycs: {
-          custom_html: body.custom_html,
-          custom_script: body.custom_script,
-          yandex_metrica: body.yandex_metrica,
+          custom_html: row.custom_html,
+          custom_script: row.custom_script,
+          yandex_metrica: row.yandex_metrica,
         },
 
         meta: {
-          title: body.meta_title,
-          description: body.meta_description,
+          title: row.meta_title,
+          description: row.meta_description,
         },
 
         participants: {
-          maximum: body.max_members_count,
-          minimum: body.min_members_count,
+          maximum: row.max_members_count,
+          minimum: row.min_members_count,
         },
-      }))
-      .sort((a, b) => a.name.localeCompare(b.name)),
+      })),
 
-  [Features.CityPublic]: body => ({
-    address: body.address,
-    alias: body.alias,
-    country: body.country,
-    email: body.email,
-    id: body.id,
-    inst_link: body.inst_link,
-    name: body.name,
-    phone: body.phone,
-    tg_link: body.tg_link,
-    vk_group_id: body.vk_group_id,
-    vk_link: body.vk_link,
+  [Features.CityPublic]: row => ({
+    address: row.address,
+    alias: row.alias,
+    country: row.country,
+    email: row.email,
+    id: row.id,
+    inst_link: row.inst_link,
+    name: row.name,
+    phone: row.phone,
+    tg_link: row.tg_link,
+    vk_group_id: row.vk_group_id,
+    vk_link: row.vk_link,
 
     analitycs: {
-      custom_html: body.custom_html,
-      custom_script: body.custom_script,
-      yandex_metrica: body.yandex_metrica,
+      custom_html: row.custom_html,
+      custom_script: row.custom_script,
+      yandex_metrica: row.yandex_metrica,
     },
 
     meta: {
-      title: body.meta_title,
-      description: body.meta_description,
+      title: row.meta_title,
+      description: row.meta_description,
     },
 
     participants: {
-      maximum: body.max_members_count,
-      minimum: body.min_members_count,
+      maximum: row.max_members_count,
+      minimum: row.min_members_count,
     },
   }),
 
-  [Features.CitiesPublic]: body =>
-    body
-      .map(body => ({
-        address: body.address,
-        alias: body.alias,
-        country: body.country,
-        email: body.email,
-        id: body.id,
-        inst_link: body.inst_link,
-        name: body.name,
-        phone: body.phone,
-        tg_link: body.tg_link,
-        vk_group_id: body.vk_group_id,
-        vk_link: body.vk_link,
+  [Features.CitiesPublic]: rows =>
+    rows
+      .map(row => ({
+        address: row.address,
+        alias: row.alias,
+        country: row.country,
+        email: row.email,
+        id: row.id,
+        inst_link: row.inst_link,
+        name: row.name,
+        phone: row.phone,
+        tg_link: row.tg_link,
+        vk_group_id: row.vk_group_id,
+        vk_link: row.vk_link,
 
         analitycs: {
-          custom_html: body.custom_html,
-          custom_script: body.custom_script,
-          yandex_metrica: body.yandex_metrica,
+          custom_html: row.custom_html,
+          custom_script: row.custom_script,
+          yandex_metrica: row.yandex_metrica,
         },
 
         meta: {
-          title: body.meta_title,
-          description: body.meta_description,
+          title: row.meta_title,
+          description: row.meta_description,
         },
 
         participants: {
-          maximum: body.max_members_count,
-          minimum: body.min_members_count,
+          maximum: row.max_members_count,
+          minimum: row.min_members_count,
         },
-      }))
-      .sort((a, b) => a.name.localeCompare(b.name)),
+      })),
 
-  [Features.GamePublic]: body => ({
-    id: body.event_id,
-    alias: body.event_alias,
-    number: body.event_number,
-    time: body.event_time,
-    status: body.event_status,
-    price: body.event_price,
-    currency: body.event_currency,
-    min_members_count: body.event_min_members_count,
-    max_members_count: body.event_max_members_count,
-
-    city: {
-      id: body.city_id,
-      alias: body.city_alias,
-    },
+  [Features.Game]: row => ({
+    id: row.event_id,
+    alias: row.event_alias,
+    number: row.event_number,
+    time: row.event_time,
+    status: row.event_status,
 
     location: {
-      name: body.location_name,
-      street: body.location_street,
-      info: body.location_info,
-      house_number: body.location_house_number,
+      name: row.location_name,
+    },
+
+    city: {
+      id: row.city_id,
+      alias: row.city_alias,
+      name: row.city_name,
+      franchise: row.city_franchise,
+      timezone: row.city_timezone,
     },
 
     theme: {
-      name: body.theme_name,
-      description: body.theme_description,
-      short_description: body.theme_short_description,
+      id: row.theme_id,
+      name: row.theme_name,
     },
 
-    media: {
-      path: body.media_path,
+    people: {
+      amount: row.people_amount,
+      reservation: row.people_reserve_amount,
+    },
+
+    teams: {
+      amount: row.teams_amount,
+      reservation: row.teams_reserve_amount,
     },
   }),
 
-  [Features.GamesPublic]: body =>
-    body
-      .map(item => ({
-        id: item.event_id,
-        alias: item.event_alias,
-        number: item.event_number,
-        time: item.event_time,
-        status: item.event_status,
-        price: item.event_price,
-        currency: item.event_currency,
-        min_members_count: item.event_min_members_count,
-        max_members_count: item.event_max_members_count,
-
-        city: {
-          id: body.city_id,
-          alias: body.city_alias,
-        },
+  [Features.Games]: rows =>
+    rows
+      .map(row => ({
+        id: row.event_id,
+        alias: row.event_alias,
+        number: row.event_number,
+        time: row.event_time,
+        status: row.event_status,
 
         location: {
-          name: item.location_name,
-          street: item.location_street,
-          info: item.location_info,
-          house_number: item.location_house_number,
-        },
-
-        theme: {
-          name: item.theme_name,
-          description: item.theme_description,
-          short_description: item.theme_short_description,
-        },
-
-        media: {
-          path: item.media_path,
-        },
-      }))
-      .sort((a, b) => new Date(a.time) - new Date(b.time)),
-
-  [Features.GamesTable]: body =>
-    body
-      .map(item => ({
-        id: item.event_id,
-        alias: item.event_alias,
-        number: item.event_number,
-        time: item.event_time,
-        status: item.event_status,
-
-        location: {
-          name: item.location_name,
+          name: row.location_name,
         },
 
         city: {
-          id: item.city_id,
-          alias: item.city_alias,
-          name: item.city_name,
-          franchise: item.city_franchise,
-          timezone: item.city_timezone,
+          id: row.city_id,
+          alias: row.city_alias,
+          name: row.city_name,
+          franchise: row.city_franchise,
+          timezone: row.city_timezone,
         },
 
         theme: {
-          id: item.theme_id,
-          name: item.theme_name,
+          id: row.theme_id,
+          name: row.theme_name,
         },
 
         people: {
-          amount: item.people_amount,
-          reservation: item.people_reserve_amount,
+          amount: row.people_amount,
+          reservation: row.people_reserve_amount,
         },
 
         teams: {
-          amount: item.teams_amount,
-          reservation: item.teams_reserve_amount,
+          amount: row.teams_amount,
+          reservation: row.teams_reserve_amount,
+        },
+      })),
+
+  [Features.GamePublic]: row => ({
+    id: row.event_id,
+    alias: row.event_alias,
+    number: row.event_number,
+    time: row.event_time,
+    status: row.event_status,
+    price: row.event_price,
+    currency: row.event_currency,
+    min_members_count: row.event_min_members_count,
+    max_members_count: row.event_max_members_count,
+
+    city: {
+      id: row.city_id,
+      alias: row.city_alias,
+    },
+
+    location: {
+      name: row.location_name,
+      street: row.location_street,
+      info: row.location_info,
+      house_number: row.location_house_number,
+    },
+
+    theme: {
+      name: row.theme_name,
+      description: row.theme_description,
+      short_description: row.theme_short_description,
+    },
+
+    media: {
+      path: row.media_path,
+    },
+  }),
+
+  [Features.GamesPublic]: rows =>
+    rows
+      .map(row => ({
+        id: row.event_id,
+        alias: row.event_alias,
+        number: row.event_number,
+        time: row.event_time,
+        status: row.event_status,
+        price: row.event_price,
+        currency: row.event_currency,
+        min_members_count: row.event_min_members_count,
+        max_members_count: row.event_max_members_count,
+
+        city: {
+          id: row.city_id,
+          alias: row.city_alias,
+        },
+
+        location: {
+          name: row.location_name,
+          street: row.location_street,
+          info: row.location_info,
+          house_number: row.location_house_number,
+        },
+
+        theme: {
+          name: row.theme_name,
+          description: row.theme_description,
+          short_description: row.theme_short_description,
+        },
+
+        media: {
+          path: row.media_path,
         },
       })),
 }
@@ -343,9 +381,9 @@ Requests
     },
   )
   .set(
-    Features.GamesTable,
+    Features.Games,
     {
       fallback: () => [],
-      onfulfilled: Transformers[Features.GamesTable],
+      onfulfilled: Transformers[Features.Games],
     },
   )
