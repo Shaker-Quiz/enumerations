@@ -8,10 +8,11 @@ export let Features = {
   CityPublic: 'CityPublic',
   CitiesPublic: 'CitiesPublic',
 
+  Game: 'Game',
+  Games: 'Games',
+
   GamePublic: 'GamePublic',
   GamesPublic: 'GamesPublic',
-
-  Games: 'GamesTable',
 }
 
 /**
@@ -196,7 +197,7 @@ export let Transformers = {
     id: row.event_id,
     alias: row.event_alias,
     number: row.event_number,
-    time: row.event_time,
+    date: row.event_time,
     status: row.event_status,
 
     location: {
@@ -367,6 +368,20 @@ Requests
     },
   )
   .set(
+    Features.Game,
+    {
+      fallback: () => null,
+      onfulfilled: Transformers[Features.Game],
+    },
+  )
+  .set(
+    Features.Games,
+    {
+      fallback: () => [],
+      onfulfilled: Transformers[Features.Games],
+    },
+  )
+  .set(
     Features.GamePublic,
     {
       fallback: () => null,
@@ -378,12 +393,5 @@ Requests
     {
       fallback: () => [],
       onfulfilled: Transformers[Features.GamesPublic],
-    },
-  )
-  .set(
-    Features.Games,
-    {
-      fallback: () => [],
-      onfulfilled: Transformers[Features.Games],
     },
   )

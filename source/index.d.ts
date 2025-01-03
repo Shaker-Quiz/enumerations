@@ -454,41 +454,39 @@ type MediaRow = {
  * API
  */
 
-type CityPublicRow = Pick<
-  CityRow,
-  | 'address'
-  | 'alias'
-  | 'country'
-  | 'custom_html'
-  | 'custom_script'
-  | 'email'
-  | 'id'
-  | 'inst_link'
-  | 'max_members_count'
-  | 'meta_description'
-  | 'meta_title'
-  | 'min_members_count'
-  | 'name'
-  | 'phone'
-  | 'tg_link'
-  | 'vk_group_id'
-  | 'vk_link'
-  | 'yandex_metrica'
->
+type CityPublicRow = {
+  address: CityRow['address']
+  alias: CityRow['alias']
+  country: CityRow['country']
+  custom_html: CityRow['custom_html']
+  custom_script: CityRow['custom_script']
+  email: CityRow['email']
+  id: CityRow['id']
+  inst_link: CityRow['inst_link']
+  max_members_count: CityRow['max_members_count']
+  meta_description: CityRow['meta_description']
+  meta_title: CityRow['meta_title']
+  min_members_count: CityRow['min_members_count']
+  name: CityRow['name']
+  phone: CityRow['phone']
+  tg_link: CityRow['tg_link']
+  vk_group_id: CityRow['vk_group_id']
+  vk_link: CityRow['vk_link']
+  yandex_metrica: CityRow['yandex_metrica']
+}
 
 type GamePublicRow =
-  & Pick<
-    GameRow,
-    | 'alias'
-    | 'currency'
-    | 'id'
-    | 'max_members_count'
-    | 'min_members_count'
-    | 'number'
-    | 'price'
-    | 'status'
-    | 'event_time'
-  >
+  & {
+    alias: GameRow['alias']
+    currency: GameRow['currency']
+    id: GameRow['id']
+    max_members_count: GameRow['max_members_count']
+    min_members_count: GameRow['min_members_count']
+    number: GameRow['number']
+    price: GameRow['price']
+    status: GameRow['status']
+    event_time: GameRow['event_time']
+  }
   & {
     city_alias: CityRow['alias']
     city_id: CityRow['id']
@@ -511,59 +509,56 @@ type GamePublicRow =
  */
 
 type CityRowSpec =
-  & Pick<
-    CityRow,
-    | 'name'
-    | 'id'
-    | 'time_created'
-    | 'time_updated'
-    | 'price'
-    | 'currency'
-    | 'game_time'
-    | 'timezone'
-    | 'vk_link'
-    | 'vk_comment'
-    | 'tg_link'
-    | 'tg_login'
-    | 'tg_password'
-    | 'tg_comment'
-    | 'inst_link'
-    | 'inst_login'
-    | 'inst_password'
-    | 'inst_comment'
-    | 'is_franchise'
-    | 'alias'
-    | 'vk_group_id'
-    | 'chatapp_line'
-    | 'chatapp_user'
-    | 'chatapp_tag'
-    | 'chatapp_category'
-    | 'telegram_chat_id'
-    | 'title'
-    | 'description'
-    | 'region'
-    | 'country'
-    | 'is_default'
-    | 'yandex_metrica'
-    | 'chatapp_legacy'
-    | 'phone'
-    | 'email'
-    | 'address'
-  >
   & {
-    analitycs: Pick<
-      CityRow,
-      | 'custom_html'
-      | 'custom_script'
-      | 'yandex_metrica'
-    >
+    name: CityRow['name']
+    id: CityRow['id']
+    time_created: CityRow['time_created']
+    time_updated: CityRow['time_updated']
+    price: CityRow['price']
+    currency: CityRow['currency']
+    game_time: CityRow['game_time']
+    timezone: CityRow['timezone']
+    vk_link: CityRow['vk_link']
+    vk_comment: CityRow['vk_comment']
+    tg_link: CityRow['tg_link']
+    tg_login: CityRow['tg_login']
+    tg_password: CityRow['tg_password']
+    tg_comment: CityRow['tg_comment']
+    inst_link: CityRow['inst_link']
+    inst_login: CityRow['inst_login']
+    inst_password: CityRow['inst_password']
+    inst_comment: CityRow['inst_comment']
+    is_franchise: CityRow['is_franchise']
+    alias: CityRow['alias']
+    vk_group_id: CityRow['vk_group_id']
+    chatapp_line: CityRow['chatapp_line']
+    chatapp_user: CityRow['chatapp_user']
+    chatapp_tag: CityRow['chatapp_tag']
+    chatapp_category: CityRow['chatapp_category']
+    telegram_chat_id: CityRow['telegram_chat_id']
+    title: CityRow['title']
+    description: CityRow['description']
+    region: CityRow['region']
+    country: CityRow['country']
+    is_default: CityRow['is_default']
+    yandex_metrica: CityRow['yandex_metrica']
+    chatapp_legacy: CityRow['chatapp_legacy']
+    phone: CityRow['phone']
+    email: CityRow['email']
+    address: CityRow['address']
   }
   & {
-    meta: Pick<
-      CityRow,
-      | 'title'
-      | 'description'
-    >
+    analitycs: {
+      custom_html: CityRow['custom_html']
+      custom_script: CityRow['custom_script']
+      yandex_metrica: CityRow['yandex_metrica']
+    }
+  }
+  & {
+    meta: {
+      title: CityRow['title']
+      description: CityRow['description']
+    }
   }
   & {
     participants: {
@@ -573,34 +568,31 @@ type CityRowSpec =
   }
 
 type CityPublicRowSpec =
-  & Pick<
-    CityRow,
-    | 'address'
-    | 'alias'
-    | 'country'
-    | 'email'
-    | 'id'
-    | 'inst_link'
-    | 'name'
-    | 'phone'
-    | 'tg_link'
-    | 'vk_group_id'
-    | 'vk_link'
-  >
   & {
-    analitycs: Pick<
-      CityRow,
-      | 'custom_html'
-      | 'custom_script'
-      | 'yandex_metrica'
-    >
+    address: CityRow['address']
+    alias: CityRow['alias']
+    country: CityRow['country']
+    email: CityRow['email']
+    id: CityRow['id']
+    inst_link: CityRow['inst_link']
+    name: CityRow['name']
+    phone: CityRow['phone']
+    tg_link: CityRow['tg_link']
+    vk_group_id: CityRow['vk_group_id']
+    vk_link: CityRow['vk_link']
   }
   & {
-    meta: Pick<
-      CityRow,
-      | 'title'
-      | 'description'
-    >
+    analitycs: {
+      custom_html: CityRow['custom_html']
+      custom_script: CityRow['custom_script']
+      yandex_metrica: CityRow['yandex_metrica']
+    }
+  }
+  & {
+    meta: {
+      title: CityRow['title']
+      description: CityRow['description']
+    }
   }
   & {
     participants: {
@@ -609,71 +601,75 @@ type CityPublicRowSpec =
     }
   }
 
-type GameRowSpec = {
-  id: string | null
-  alias: string | null
-  number: string | null
-  time: string | null
-  status: string | null
-  price: string | null
-  currency: string | null
-  min_members_count: string | null
-  max_members_count: string | null
-
-  city: {
-    id: string | null
-    alias: string | null
+type GameRowSpec =
+  & {
+    id: GameRow['id']
+    alias: GameRow['alias']
+    number: GameRow['number']
+    event_time: GameRow['event_time']
+    status: GameRow['status']
+    price: GameRow['price']
+    currency: GameRow['currency']
+    min_members_count: GameRow['min_members_count']
+    max_members_count: GameRow['max_members_count']
+  }
+  & {
+    theme: {
+      id: ThemeRow['id']
+      name: ThemeRow['name']
+    }
+  }
+  & {
+    city: {
+      id: CityRow['id']
+      alias: CityRow['alias']
+      name: CityRow['name']
+      is_franchise: CityRow['is_franchise']
+    }
+  }
+  & {
+    location: {
+      name: LocationRow['name']
+    }
   }
 
-  location: {
-    name: string | null
-    street: string | null
-    info: string | null
-    house_number: string | null
+type GamePublicRowSpec =
+  & {
+    id: GameRow['id']
+    alias: GameRow['alias']
+    number: GameRow['number']
+    event_time: GameRow['event_time']
+    status: GameRow['status']
+    price: GameRow['price']
+    currency: GameRow['currency']
+    min_members_count: GameRow['min_members_count']
+    max_members_count: GameRow['max_members_count']
   }
-
-  theme: {
-    name: string | null
-    description: string | null
-    short_description: string | null
+  & {
+    theme: {
+      id: ThemeRow['id']
+      name: ThemeRow['name']
+      description: ThemeRow['description']
+      short_description: ThemeRow['short_description']
+    }
   }
-
-  media: {
-    path: string | null
+  & {
+    city: {
+      id: CityRow['id']
+      alias: CityRow['alias']
+    }
   }
-}
-
-type GamePublicRowSpec = {
-  id: string | null
-  alias: string | null
-  number: string | null
-  time: string | null
-  status: string | null
-
-  location: {
-    name: string | null
+  & {
+    location: {
+      name: LocationRow['name']
+      street: LocationRow['street']
+      info: LocationRow['location_info']
+      house_number: LocationRow['house_number']
+    }
   }
-
-  city: {
-    id: string | null
-    alias: string | null
-    name: string | null
-    franchise: string | null
-    timezone: string | null
+  & {
+    media: {
+      id: MediaRow['id']
+      path: MediaRow['path']
+    }
   }
-
-  theme: {
-    id: string | null
-    name: string | null
-  }
-
-  people: {
-    amount: string | null
-    reservation: string | null
-  }
-
-  teams: {
-    amount: string | null
-    reservation: string | null
-  }
-}
