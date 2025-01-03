@@ -2,7 +2,7 @@
   "type": "module",
 
   "name": "@shakerquiz/enumerations",
-  "version": "0.1.18",
+  "version": "0.1.19",
 
   "author": "yurkimus <yurkimus@gmail.com>",
 
@@ -12,7 +12,7 @@
   },
 
   "exports": {
-    "./index.js": {
+    ".": {
       "types": "./source/index.d.ts",
       "import": "./source/index.js"
     },
