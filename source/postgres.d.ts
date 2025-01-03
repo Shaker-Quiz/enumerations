@@ -1,11 +1,13 @@
-export let UserRoles: {
+type UserRoles = {
   Admin: 'admin'
   Manager: 'manager'
   Organizer: 'organizer'
   User: 'user'
 }
 
-export let GameStatuses: {
+export let UserRoles: UserRoles
+
+type GameStatuses = {
   Approved: 'APPROVED'
   Archive: 'ARCHIVE'
   Closed: 'CLOSED'
@@ -16,3 +18,5 @@ export let GameStatuses: {
   Rejected: 'REJECTED'
   Reserved: 'IS_RESERVE'
 }
+
+export let GameStatuses: GameStatuses

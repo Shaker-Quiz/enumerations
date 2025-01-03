@@ -1,3 +1,6 @@
+/**
+ * @type {import('./postgres.d.ts').UserRoles}
+ */
 export let UserRoles = {
   Admin: 'admin',
   Manager: 'manager',
@@ -5,6 +8,9 @@ export let UserRoles = {
   User: 'user',
 }
 
+/**
+ * @type {import('./postgres.d.ts').GameStatuses}
+ */
 export let GameStatuses = {
   Approved: 'APPROVED',
   Archive: 'ARCHIVE',
