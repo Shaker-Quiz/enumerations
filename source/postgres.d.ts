@@ -5,6 +5,8 @@ type UserRoles = {
   User: 'user'
 }
 
+type UserRolesUnion = UserRoles[keyof UserRoles]
+
 export let UserRoles: UserRoles
 
 type GameStatuses = {
@@ -18,5 +20,7 @@ type GameStatuses = {
   Rejected: 'REJECTED'
   Reserved: 'IS_RESERVE'
 }
+
+type GameStatusesUnion = GameStatuses[keyof GameStatuses]
 
 export let GameStatuses: GameStatuses
