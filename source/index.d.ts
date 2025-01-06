@@ -105,6 +105,10 @@ type GameRow = {
    * @description "character varying"
    */
   currency: Nullable<string>
+  /**
+   * @description "character varying"
+   */
+  media_path: Nullable<string>
 }
 
 type CityRow = {
@@ -617,6 +621,9 @@ type GameRowSpec =
     theme: {
       id: ThemeRow['id']
       name: ThemeRow['name']
+      media: {
+        path: MediaRow['path']
+      }
     }
   }
   & {
