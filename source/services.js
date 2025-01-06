@@ -252,6 +252,9 @@ export let Transformers = {
         theme: {
           id: row.theme_id,
           name: row.theme_name,
+          media: {
+            path: row.media_path
+          }
         },
 
         people: {
