@@ -21,8 +21,8 @@ type Transformers = typeof Transformers
 type TransformersUnion = Transformers[keyof Transformers]
 
 export let Transformers: {
-  [Features.City]: (row: CityRow) => CityRowSpec
-  [Features.Cities]: (rows: CityRow[]) => CityRowSpec[]
+  [Features.City]: (row: CityEntity) => CityRowSpec
+  [Features.Cities]: (rows: CityEntity[]) => CityRowSpec[]
 
   [Features.CityPublic]: (row: CityPublicRow) => CityPublicRowSpec
   [Features.CitiesPublic]: (rows: CityPublicRow[]) => CityPublicRowSpec[]
