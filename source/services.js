@@ -201,6 +201,7 @@ export let Transformers = {
     status: row.event_status,
 
     location: {
+      id: row.location_id,
       name: row.location_name,
     },
 
@@ -208,13 +209,18 @@ export let Transformers = {
       id: row.city_id,
       alias: row.city_alias,
       name: row.city_name,
-      franchise: row.city_franchise,
+      franchise: row.city_is_franchise,
       timezone: row.city_timezone,
     },
 
     theme: {
       id: row.theme_id,
       name: row.theme_name,
+      media: {
+        id: row.media_id,
+        title: row.media_title,
+        path: row.media_path,
+      },
     },
 
     people: {
@@ -238,6 +244,7 @@ export let Transformers = {
         status: row.event_status,
 
         location: {
+          id: row.location_id,
           name: row.location_name,
         },
 
@@ -245,7 +252,7 @@ export let Transformers = {
           id: row.city_id,
           alias: row.city_alias,
           name: row.city_name,
-          franchise: row.city_franchise,
+          franchise: row.city_is_franchise,
           timezone: row.city_timezone,
         },
 
@@ -253,8 +260,10 @@ export let Transformers = {
           id: row.theme_id,
           name: row.theme_name,
           media: {
-            path: row.media_path
-          }
+            id: row.media_id,
+            title: row.media_title,
+            path: row.media_path,
+          },
         },
 
         people: {

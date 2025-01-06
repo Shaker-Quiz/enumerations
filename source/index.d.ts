@@ -8,7 +8,7 @@ type Nullable<Type> = Type | null
  * Postgres
  */
 
-type GameRow = {
+type GameEntity = {
   /**
    * @description "uuid"
    */
@@ -105,13 +105,9 @@ type GameRow = {
    * @description "character varying"
    */
   currency: Nullable<string>
-  /**
-   * @description "character varying"
-   */
-  media_path: Nullable<string>
 }
 
-type CityRow = {
+type CityEntity = {
   /**
    * @description "timestamp with time zone"
    */
@@ -282,7 +278,7 @@ type CityRow = {
   inst_link: Nullable<string>
 }
 
-type LocationRow = {
+type LocationEntity = {
   /**
    * @description "uuid"
    */
@@ -361,7 +357,7 @@ type LocationRow = {
   location_info: Nullable<string>
 }
 
-type ThemeRow = {
+type ThemeEntity = {
   /**
    * @description "timestamp with time zone"
    */
@@ -392,7 +388,7 @@ type ThemeRow = {
   name: Nullable<string>
 }
 
-type ImageMediaRow = {
+type ImageMediaEntity = {
   /**
    * @description "uuid"
    */
@@ -423,7 +419,7 @@ type ImageMediaRow = {
   file_format: Nullable<string>
 }
 
-type MediaRow = {
+type MediaEntity = {
   /**
    * @description "uuid"
    */
@@ -459,53 +455,53 @@ type MediaRow = {
  */
 
 type CityPublicRow = {
-  address: CityRow['address']
-  alias: CityRow['alias']
-  country: CityRow['country']
-  custom_html: CityRow['custom_html']
-  custom_script: CityRow['custom_script']
-  email: CityRow['email']
-  id: CityRow['id']
-  inst_link: CityRow['inst_link']
-  max_members_count: CityRow['max_members_count']
-  meta_description: CityRow['meta_description']
-  meta_title: CityRow['meta_title']
-  min_members_count: CityRow['min_members_count']
-  name: CityRow['name']
-  phone: CityRow['phone']
-  tg_link: CityRow['tg_link']
-  vk_group_id: CityRow['vk_group_id']
-  vk_link: CityRow['vk_link']
-  yandex_metrica: CityRow['yandex_metrica']
+  address: CityEntity['address']
+  alias: CityEntity['alias']
+  country: CityEntity['country']
+  custom_html: CityEntity['custom_html']
+  custom_script: CityEntity['custom_script']
+  email: CityEntity['email']
+  id: CityEntity['id']
+  inst_link: CityEntity['inst_link']
+  max_members_count: CityEntity['max_members_count']
+  meta_description: CityEntity['meta_description']
+  meta_title: CityEntity['meta_title']
+  min_members_count: CityEntity['min_members_count']
+  name: CityEntity['name']
+  phone: CityEntity['phone']
+  tg_link: CityEntity['tg_link']
+  vk_group_id: CityEntity['vk_group_id']
+  vk_link: CityEntity['vk_link']
+  yandex_metrica: CityEntity['yandex_metrica']
 }
 
 type GamePublicRow =
   & {
-    alias: GameRow['alias']
-    currency: GameRow['currency']
-    id: GameRow['id']
-    max_members_count: GameRow['max_members_count']
-    min_members_count: GameRow['min_members_count']
-    number: GameRow['number']
-    price: GameRow['price']
-    status: GameRow['status']
-    event_time: GameRow['event_time']
+    alias: GameEntity['alias']
+    currency: GameEntity['currency']
+    id: GameEntity['id']
+    max_members_count: GameEntity['max_members_count']
+    min_members_count: GameEntity['min_members_count']
+    number: GameEntity['number']
+    price: GameEntity['price']
+    status: GameEntity['status']
+    event_time: GameEntity['event_time']
   }
   & {
-    city_alias: CityRow['alias']
-    city_id: CityRow['id']
-    image_id: ImageMediaRow['id']
-    location_house_number: LocationRow['house_number']
-    location_id: LocationRow['id']
-    location_info: LocationRow['location_info']
-    location_name: LocationRow['name']
-    location_street: LocationRow['street']
-    media_id: MediaRow['id']
-    media_path: MediaRow['path']
-    theme_description: ThemeRow['description']
-    theme_id: ThemeRow['id']
-    theme_name: ThemeRow['name']
-    theme_short_description: ThemeRow['short_description']
+    city_alias: CityEntity['alias']
+    city_id: CityEntity['id']
+    image_id: ImageMediaEntity['id']
+    location_house_number: LocationEntity['house_number']
+    location_id: LocationEntity['id']
+    location_info: LocationEntity['location_info']
+    location_name: LocationEntity['name']
+    location_street: LocationEntity['street']
+    media_id: MediaEntity['id']
+    media_path: MediaEntity['path']
+    theme_description: ThemeEntity['description']
+    theme_id: ThemeEntity['id']
+    theme_name: ThemeEntity['name']
+    theme_short_description: ThemeEntity['short_description']
   }
 
 /**
@@ -514,169 +510,214 @@ type GamePublicRow =
 
 type CityRowSpec =
   & {
-    name: CityRow['name']
-    id: CityRow['id']
-    time_created: CityRow['time_created']
-    time_updated: CityRow['time_updated']
-    price: CityRow['price']
-    currency: CityRow['currency']
-    game_time: CityRow['game_time']
-    timezone: CityRow['timezone']
-    vk_link: CityRow['vk_link']
-    vk_comment: CityRow['vk_comment']
-    tg_link: CityRow['tg_link']
-    tg_login: CityRow['tg_login']
-    tg_password: CityRow['tg_password']
-    tg_comment: CityRow['tg_comment']
-    inst_link: CityRow['inst_link']
-    inst_login: CityRow['inst_login']
-    inst_password: CityRow['inst_password']
-    inst_comment: CityRow['inst_comment']
-    is_franchise: CityRow['is_franchise']
-    alias: CityRow['alias']
-    vk_group_id: CityRow['vk_group_id']
-    chatapp_line: CityRow['chatapp_line']
-    chatapp_user: CityRow['chatapp_user']
-    chatapp_tag: CityRow['chatapp_tag']
-    chatapp_category: CityRow['chatapp_category']
-    telegram_chat_id: CityRow['telegram_chat_id']
-    title: CityRow['title']
-    description: CityRow['description']
-    region: CityRow['region']
-    country: CityRow['country']
-    is_default: CityRow['is_default']
-    yandex_metrica: CityRow['yandex_metrica']
-    chatapp_legacy: CityRow['chatapp_legacy']
-    phone: CityRow['phone']
-    email: CityRow['email']
-    address: CityRow['address']
+    name: CityEntity['name']
+    id: CityEntity['id']
+    time_created: CityEntity['time_created']
+    time_updated: CityEntity['time_updated']
+    price: CityEntity['price']
+    currency: CityEntity['currency']
+    game_time: CityEntity['game_time']
+    timezone: CityEntity['timezone']
+    vk_link: CityEntity['vk_link']
+    vk_comment: CityEntity['vk_comment']
+    tg_link: CityEntity['tg_link']
+    tg_login: CityEntity['tg_login']
+    tg_password: CityEntity['tg_password']
+    tg_comment: CityEntity['tg_comment']
+    inst_link: CityEntity['inst_link']
+    inst_login: CityEntity['inst_login']
+    inst_password: CityEntity['inst_password']
+    inst_comment: CityEntity['inst_comment']
+    is_franchise: CityEntity['is_franchise']
+    alias: CityEntity['alias']
+    vk_group_id: CityEntity['vk_group_id']
+    chatapp_line: CityEntity['chatapp_line']
+    chatapp_user: CityEntity['chatapp_user']
+    chatapp_tag: CityEntity['chatapp_tag']
+    chatapp_category: CityEntity['chatapp_category']
+    telegram_chat_id: CityEntity['telegram_chat_id']
+    title: CityEntity['title']
+    description: CityEntity['description']
+    region: CityEntity['region']
+    country: CityEntity['country']
+    is_default: CityEntity['is_default']
+    yandex_metrica: CityEntity['yandex_metrica']
+    chatapp_legacy: CityEntity['chatapp_legacy']
+    phone: CityEntity['phone']
+    email: CityEntity['email']
+    address: CityEntity['address']
   }
   & {
     analitycs: {
-      custom_html: CityRow['custom_html']
-      custom_script: CityRow['custom_script']
-      yandex_metrica: CityRow['yandex_metrica']
+      custom_html: CityEntity['custom_html']
+      custom_script: CityEntity['custom_script']
+      yandex_metrica: CityEntity['yandex_metrica']
     }
   }
   & {
     meta: {
-      title: CityRow['title']
-      description: CityRow['description']
+      title: CityEntity['title']
+      description: CityEntity['description']
     }
   }
   & {
     participants: {
-      maximum: CityRow['max_members_count']
-      minimum: CityRow['min_members_count']
+      maximum: CityEntity['max_members_count']
+      minimum: CityEntity['min_members_count']
     }
   }
 
 type CityPublicRowSpec =
   & {
-    address: CityRow['address']
-    alias: CityRow['alias']
-    country: CityRow['country']
-    email: CityRow['email']
-    id: CityRow['id']
-    inst_link: CityRow['inst_link']
-    name: CityRow['name']
-    phone: CityRow['phone']
-    tg_link: CityRow['tg_link']
-    vk_group_id: CityRow['vk_group_id']
-    vk_link: CityRow['vk_link']
+    address: CityEntity['address']
+    alias: CityEntity['alias']
+    country: CityEntity['country']
+    email: CityEntity['email']
+    id: CityEntity['id']
+    inst_link: CityEntity['inst_link']
+    name: CityEntity['name']
+    phone: CityEntity['phone']
+    tg_link: CityEntity['tg_link']
+    vk_group_id: CityEntity['vk_group_id']
+    vk_link: CityEntity['vk_link']
   }
   & {
     analitycs: {
-      custom_html: CityRow['custom_html']
-      custom_script: CityRow['custom_script']
-      yandex_metrica: CityRow['yandex_metrica']
+      custom_html: CityEntity['custom_html']
+      custom_script: CityEntity['custom_script']
+      yandex_metrica: CityEntity['yandex_metrica']
     }
   }
   & {
     meta: {
-      title: CityRow['title']
-      description: CityRow['description']
+      title: CityEntity['title']
+      description: CityEntity['description']
     }
   }
   & {
     participants: {
-      maximum: CityRow['max_members_count']
-      minimum: CityRow['min_members_count']
+      maximum: CityEntity['max_members_count']
+      minimum: CityEntity['min_members_count']
     }
+  }
+
+type GameRow =
+  & {
+    event_id: GameEntity['id']
+    event_alias: GameEntity['alias']
+    event_number: GameEntity['number']
+    event_time: GameEntity['event_time']
+    event_status: GameEntity['status']
+  }
+  & {
+    location_id: LocationEntity['id']
+    location_name: LocationEntity['name']
+  }
+  & {
+    city_id: CityEntity['id']
+    city_alias: CityEntity['alias']
+    city_name: CityEntity['name']
+    city_is_franchise: CityEntity['is_franchise']
+  }
+  & {
+    theme_id: ThemeEntity['id']
+    theme_name: ThemeEntity['name']
+  }
+  & {
+    media_id: MediaEntity['id']
+    media_title: MediaEntity['title']
+    media_path: MediaEntity['path']
+  }
+  & {
+    people_amount: number
+    people_reserve_amount: number
+    teams_amount: number
+    teams_reserve_amount: number
   }
 
 type GameRowSpec =
   & {
-    id: GameRow['id']
-    alias: GameRow['alias']
-    number: GameRow['number']
-    event_time: GameRow['event_time']
-    status: GameRow['status']
-    price: GameRow['price']
-    currency: GameRow['currency']
-    min_members_count: GameRow['min_members_count']
-    max_members_count: GameRow['max_members_count']
+    id: GameEntity['id']
+    alias: GameEntity['alias']
+    number: GameEntity['number']
+    time: GameEntity['event_time']
+    status: GameEntity['status']
   }
   & {
-    theme: {
-      id: ThemeRow['id']
-      name: ThemeRow['name']
-      media: {
-        path: MediaRow['path']
-      }
+    location: {
+      id: LocationEntity['id']
+      name: LocationEntity['name']
     }
   }
   & {
     city: {
-      id: CityRow['id']
-      alias: CityRow['alias']
-      name: CityRow['name']
-      is_franchise: CityRow['is_franchise']
+      id: CityEntity['id']
+      alias: CityEntity['alias']
+      name: CityEntity['name']
+      franchise: CityEntity['is_franchise']
     }
   }
   & {
-    location: {
-      name: LocationRow['name']
+    theme: {
+      id: ThemeEntity['id']
+      name: ThemeEntity['name']
+      media: {
+        id: MediaEntity['id']
+        title: MediaEntity['title']
+        path: MediaEntity['path']
+      }
+    }
+  }
+  & {
+    people: {
+      amount: number
+      reservation: number
+    }
+  }
+  & {
+    teams: {
+      amount: number
+      reservation: number
     }
   }
 
 type GamePublicRowSpec =
   & {
-    id: GameRow['id']
-    alias: GameRow['alias']
-    number: GameRow['number']
-    event_time: GameRow['event_time']
-    status: GameRow['status']
-    price: GameRow['price']
-    currency: GameRow['currency']
-    min_members_count: GameRow['min_members_count']
-    max_members_count: GameRow['max_members_count']
+    id: GameEntity['id']
+    alias: GameEntity['alias']
+    number: GameEntity['number']
+    event_time: GameEntity['event_time']
+    status: GameEntity['status']
+    price: GameEntity['price']
+    currency: GameEntity['currency']
+    min_members_count: GameEntity['min_members_count']
+    max_members_count: GameEntity['max_members_count']
   }
   & {
     theme: {
-      id: ThemeRow['id']
-      name: ThemeRow['name']
-      description: ThemeRow['description']
-      short_description: ThemeRow['short_description']
+      id: ThemeEntity['id']
+      name: ThemeEntity['name']
+      description: ThemeEntity['description']
+      short_description: ThemeEntity['short_description']
     }
   }
   & {
     city: {
-      id: CityRow['id']
-      alias: CityRow['alias']
+      id: CityEntity['id']
+      alias: CityEntity['alias']
     }
   }
   & {
     location: {
-      name: LocationRow['name']
-      street: LocationRow['street']
-      info: LocationRow['location_info']
-      house_number: LocationRow['house_number']
+      name: LocationEntity['name']
+      street: LocationEntity['street']
+      info: LocationEntity['location_info']
+      house_number: LocationEntity['house_number']
     }
   }
   & {
     media: {
-      id: MediaRow['id']
-      path: MediaRow['path']
+      id: MediaEntity['id']
+      path: MediaEntity['path']
     }
   }
