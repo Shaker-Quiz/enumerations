@@ -13,6 +13,8 @@ export let Features = {
 
   GamePublic: 'GamePublic',
   GamesPublic: 'GamesPublic',
+
+  GameRegistrationPublic: 'GameRegistrationPublic',
 }
 
 /**
@@ -346,6 +348,8 @@ export let Transformers = {
           path: row.media_path,
         },
       })),
+
+  [Features.GameRegistrationPublic]: row => row,
 }
 
 export let Requests = new Map()
@@ -405,5 +409,12 @@ Requests
     {
       fallback: () => [],
       onfulfilled: Transformers[Features.GamesPublic],
+    },
+  )
+  .set(
+    Features.GameRegistrationPublic,
+    {
+      fallback: () => null,
+      onfulfilled: Transformers[Features.GameRegistrationPublic],
     },
   )

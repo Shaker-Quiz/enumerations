@@ -14,6 +14,8 @@ export let Features: {
 
   GamePublic: 'GamePublic'
   GamesPublic: 'GamesPublic'
+
+  GameRegistrationPublic: 'GameRegistrationPublic'
 }
 
 type Transformers = typeof Transformers
@@ -32,6 +34,8 @@ export let Transformers: {
 
   [Features.GamePublic]: (row: GamePublicRow) => GamePublicRowSpec
   [Features.GamesPublic]: (rows: GamePublicRow[]) => GamePublicRowSpec[]
+
+  [Features.GameRegistrationPublic]: (row: GameRegistrationPublicRow) => GameRegistrationPublicSpec
 }
 
 export let Requests: Map<FeaturesUnion, {
